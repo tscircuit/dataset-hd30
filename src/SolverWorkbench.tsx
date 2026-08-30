@@ -1,11 +1,11 @@
 import {
   HighDensitySolverA01,
-  HighDensitySolverA01FineGrid,
   HighDensitySolverA02,
   HighDensitySolverA03,
   HighDensitySolverA05,
   HighDensitySolverA08,
   HighDensitySolverA09,
+  HighDensitySolverA11,
 } from "@tscircuit/high-density-a01";
 import type { BaseSolver } from "@tscircuit/solver-utils";
 import { GenericSolverDebugger } from "@tscircuit/solver-utils/react";
@@ -54,7 +54,6 @@ const SHARED_ALIASES: Record<string, string[]> = {
 
 const SOLVER_PARAMETER_KEYS: Record<SolverKey, string[]> = {
   a01: ["cellSizeMm", ...Object.keys(SHARED_ALIASES), "hyperParameters"],
-  a01fine: [...Object.keys(SHARED_ALIASES), "hyperParameters"],
   a02: [
     "outerGridCellSize",
     "outerGridCellThickness",
@@ -117,6 +116,7 @@ const SOLVER_PARAMETER_KEYS: Record<SolverKey, string[]> = {
     ...Object.keys(SHARED_ALIASES),
     "hyperParameters",
   ],
+  a11: [...Object.keys(SHARED_ALIASES), "hyperParameters"],
 };
 
 const collectParameterSources = (
@@ -134,12 +134,12 @@ const collectParameterSources = (
     solverKey.toUpperCase(),
     `HighDensitySolver${solverKey.toUpperCase()}`,
   ];
-  if (solverKey === "a01fine") {
+  if (solverKey === "a11") {
     solverAliases.push(
       "a01",
       "A01",
       "HighDensitySolverA01",
-      "HighDensitySolverA01FineGrid",
+      "HighDensitySolverA11",
     );
   }
   for (const source of [...sources]) {
@@ -181,7 +181,7 @@ export function getPipelineOverrides(
   // Pipeline9's grow-shrink portfolio instantiated A01 and A03 with a 0.1 mm
   // trace margin. obstacleMargin describes board-obstacle clearance and is not
   // the A-series traceMargin for those exact solver configurations.
-  if (solverKey === "a01" || solverKey === "a01fine") {
+  if (solverKey === "a01" || solverKey === "a11") {
     result.traceMargin = 0.1;
   }
   if (solverKey === "a03") {
@@ -205,7 +205,7 @@ export function getEffectiveSolverSettings({
     ...pipelineOverrides,
   };
 
-  if (solverKey === "a01" || solverKey === "a01fine") {
+  if (solverKey === "a01" || solverKey === "a11") {
     const existingHyperParameters = isObject(effective.hyperParameters)
       ? effective.hyperParameters
       : {};
@@ -241,15 +241,6 @@ function createSolver(props: SolverWorkbenchProps): BaseSolver {
         new HighDensitySolverA01(
           constructorProps as ConstructorParameters<
             typeof HighDensitySolverA01
-          >[0],
-        ),
-        props.maxIterations,
-      );
-    case "a01fine":
-      return prepareSolver(
-        new HighDensitySolverA01FineGrid(
-          constructorProps as ConstructorParameters<
-            typeof HighDensitySolverA01FineGrid
           >[0],
         ),
         props.maxIterations,
@@ -295,6 +286,15 @@ function createSolver(props: SolverWorkbenchProps): BaseSolver {
         new HighDensitySolverA09(
           constructorProps as ConstructorParameters<
             typeof HighDensitySolverA09
+          >[0],
+        ),
+        props.maxIterations,
+      );
+    case "a11":
+      return prepareSolver(
+        new HighDensitySolverA11(
+          constructorProps as ConstructorParameters<
+            typeof HighDensitySolverA11
           >[0],
         ),
         props.maxIterations,

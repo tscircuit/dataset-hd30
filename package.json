@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#e17068ad58033ffbcf8419a6a5aeed8819ea31d2",
+    "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#41878cebec2861fae5c7796e54f8d23bc8c5dfdb",
     "@tscircuit/solver-utils": "0.0.21",
     "graphics-debug": "0.0.86",
     "react": "19.1.1",

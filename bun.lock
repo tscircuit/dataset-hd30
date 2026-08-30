@@ -5,7 +5,7 @@
     "": {
       "name": "@tscircuit/dataset-hd30",
       "dependencies": {
-        "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#e17068ad58033ffbcf8419a6a5aeed8819ea31d2",
+        "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#41878cebec2861fae5c7796e54f8d23bc8c5dfdb",
         "@tscircuit/solver-utils": "0.0.21",
         "graphics-debug": "0.0.86",
         "react": "19.1.1",
@@ -140,7 +140,7 @@
 
     "@thednp/dommatrix": ["@thednp/dommatrix@3.1.1", "", {}, "sha512-LQw9A56KeDYN9aPFGjad2xTpGNnsIsvq98k1l28HNsvi+SuRFY6M5ET3f0SFrtssOKOcvgqmObztR0/dc6kSZQ=="],
 
-    "@tscircuit/high-density-a01": ["@tscircuit/high-density-a01@github:tscircuit/high-density-a01#e17068a", { "dependencies": { "flatbush": "^4.5.0" }, "peerDependencies": { "typescript": "^5" } }, "tscircuit-high-density-a01-e17068a"],
+    "@tscircuit/high-density-a01": ["@tscircuit/high-density-a01@github:tscircuit/high-density-a01#41878ce", { "dependencies": { "flatbush": "^4.5.0" }, "peerDependencies": { "typescript": "^5" } }, "tscircuit-high-density-a01-41878ce"],
 
     "@tscircuit/image-utils": ["@tscircuit/image-utils@0.0.8", "", { "dependencies": { "@flatten-js/core": "^1.6.2", "color-diff": "^1.4.0", "fast-png": "^8.0.0", "svg-path-commander": "^2.1.11", "transformation-matrix": "^2.16.1" } }, "sha512-/a/dyd0Ly+YSk73pNXi0M02nfaiZ1NQ8PVNDBTOHHESyTOrNHiVAT+NWxsWi44gHZ/ivLegAmjxSSbSSGfU+sQ=="],
 

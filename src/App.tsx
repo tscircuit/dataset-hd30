@@ -383,11 +383,11 @@ function DatasetSidebar({
         <span className="status-dot" />
         <span>Viewer solver suite pinned</span>
         <a
-          href="https://github.com/tscircuit/high-density-a01/commit/e17068ad58033ffbcf8419a6a5aeed8819ea31d2"
+          href="https://github.com/tscircuit/high-density-a01/commit/41878cebec2861fae5c7796e54f8d23bc8c5dfdb"
           target="_blank"
           rel="noreferrer"
         >
-          e17068a ↗
+          41878ce ↗
         </a>
       </div>
     </aside>
@@ -467,7 +467,7 @@ function SolverControls({
         </div>
         <small className="parameter-note">
           {settingsMode === "pipeline9"
-            ? solverKey === "a01fine"
+            ? solverKey === "a11"
               ? "Pipeline9 copper values · derived 0.05 mm grid"
               : solverKey === "a01" || solverKey === "a03"
                 ? "Exact Pipeline9 A-series values"
@@ -494,14 +494,14 @@ function SolverControls({
       </div>
 
       <div className="control-panel__field">
-        <label htmlFor="shuffle-seed">A01 shuffle seed</label>
+        <label htmlFor="shuffle-seed">A01 / A11 shuffle seed</label>
         <input
           id="shuffle-seed"
           type="number"
           min={0}
           step={1}
           value={a01ShuffleSeed}
-          disabled={solverKey !== "a01" && solverKey !== "a01fine"}
+          disabled={solverKey !== "a01" && solverKey !== "a11"}
           onChange={(event) =>
             onSeedChange(
               Math.max(0, Math.floor(Number(event.currentTarget.value))),
