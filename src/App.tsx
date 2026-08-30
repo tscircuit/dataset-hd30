@@ -383,11 +383,11 @@ function DatasetSidebar({
         <span className="status-dot" />
         <span>Viewer solver suite pinned</span>
         <a
-          href="https://github.com/tscircuit/high-density-a01/commit/41878cebec2861fae5c7796e54f8d23bc8c5dfdb"
+          href="https://github.com/tscircuit/high-density-a01/commit/2086e5b5019fd01f2dad1c0a7b25fb32eecb60da"
           target="_blank"
           rel="noreferrer"
         >
-          41878ce ↗
+          2086e5b ↗
         </a>
       </div>
     </aside>
