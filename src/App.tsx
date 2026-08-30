@@ -381,13 +381,13 @@ function DatasetSidebar({
 
       <div className="sidebar__footer">
         <span className="status-dot" />
-        <span>High-density suite pinned</span>
+        <span>Viewer solver suite pinned</span>
         <a
-          href="https://github.com/tscircuit/high-density-a01/commit/9a3a3dbc62d425c0459e6fc2fef7a656b448e9a0"
+          href="https://github.com/tscircuit/high-density-a01/commit/2086e5b5019fd01f2dad1c0a7b25fb32eecb60da"
           target="_blank"
           rel="noreferrer"
         >
-          9a3a3db ↗
+          2086e5b ↗
         </a>
       </div>
     </aside>
@@ -467,9 +467,13 @@ function SolverControls({
         </div>
         <small className="parameter-note">
           {settingsMode === "pipeline9"
-            ? solverKey === "a01" || solverKey === "a03"
-              ? "Exact Pipeline9 A-series values"
-              : "Mapped from stored Pipeline9 values"
+            ? solverKey === "a12"
+              ? "Pipeline9 copper values · fine perimeter + coarse middle"
+              : solverKey === "a11"
+                ? "Pipeline9 copper values · derived 0.05 mm grid"
+                : solverKey === "a01" || solverKey === "a03"
+                  ? "Exact Pipeline9 A-series values"
+                  : "Mapped from stored Pipeline9 values"
             : "Pinned package defaults"}
         </small>
       </fieldset>
@@ -492,14 +496,16 @@ function SolverControls({
       </div>
 
       <div className="control-panel__field">
-        <label htmlFor="shuffle-seed">A01 shuffle seed</label>
+        <label htmlFor="shuffle-seed">A01 / A11 / A12 shuffle seed</label>
         <input
           id="shuffle-seed"
           type="number"
           min={0}
           step={1}
           value={a01ShuffleSeed}
-          disabled={solverKey !== "a01"}
+          disabled={
+            solverKey !== "a01" && solverKey !== "a11" && solverKey !== "a12"
+          }
           onChange={(event) =>
             onSeedChange(
               Math.max(0, Math.floor(Number(event.currentTarget.value))),

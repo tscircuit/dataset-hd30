@@ -31,7 +31,8 @@ export type DatasetManifest = {
   raw: unknown;
 };
 
-export type SolverKey = "a01" | "a02" | "a03" | "a05" | "a08" | "a09";
+export type SolverKey =
+  "a01" | "a02" | "a03" | "a05" | "a08" | "a09" | "a11" | "a12";
 
 export type SettingsMode = "defaults" | "pipeline9";
 
@@ -44,6 +45,8 @@ export const SOLVER_OPTIONS: Array<{ value: SolverKey; label: string }> = [
   { value: "a05", label: "A05" },
   { value: "a08", label: "A08" },
   { value: "a09", label: "A09" },
+  { value: "a11", label: "A11" },
+  { value: "a12", label: "A12" },
 ];
 
 export const isSolverKey = (value: string | null): value is SolverKey =>

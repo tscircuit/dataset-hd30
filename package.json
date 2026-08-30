@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "test": "bun test",
     "validate": "bun scripts/validate.mjs",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#9a3a3dbc62d425c0459e6fc2fef7a656b448e9a0",
+    "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#2086e5b5019fd01f2dad1c0a7b25fb32eecb60da",
     "@tscircuit/solver-utils": "0.0.21",
     "graphics-debug": "0.0.86",
     "react": "19.1.1",

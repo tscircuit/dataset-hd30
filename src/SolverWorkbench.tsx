@@ -5,6 +5,8 @@ import {
   HighDensitySolverA05,
   HighDensitySolverA08,
   HighDensitySolverA09,
+  HighDensitySolverA11,
+  HighDensitySolverA12,
 } from "@tscircuit/high-density-a01";
 import type { BaseSolver } from "@tscircuit/solver-utils";
 import { GenericSolverDebugger } from "@tscircuit/solver-utils/react";
@@ -115,6 +117,12 @@ const SOLVER_PARAMETER_KEYS: Record<SolverKey, string[]> = {
     ...Object.keys(SHARED_ALIASES),
     "hyperParameters",
   ],
+  a11: [...Object.keys(SHARED_ALIASES), "hyperParameters"],
+  a12: [
+    "fineGridCellThickness",
+    ...Object.keys(SHARED_ALIASES),
+    "hyperParameters",
+  ],
 };
 
 const collectParameterSources = (
@@ -132,6 +140,17 @@ const collectParameterSources = (
     solverKey.toUpperCase(),
     `HighDensitySolver${solverKey.toUpperCase()}`,
   ];
+  if (solverKey === "a11") {
+    solverAliases.push(
+      "a01",
+      "A01",
+      "HighDensitySolverA01",
+      "HighDensitySolverA11",
+    );
+  }
+  if (solverKey === "a12") {
+    solverAliases.push("a03", "A03", "HighDensitySolverA03");
+  }
   for (const source of [...sources]) {
     for (const alias of solverAliases) {
       const value = source[alias];
@@ -169,9 +188,9 @@ export function getPipelineOverrides(
   }
 
   // Pipeline9's grow-shrink portfolio instantiated A01 and A03 with a 0.1 mm
-  // trace margin. obstacleMargin describes board-obstacle clearance and is not
-  // the A-series traceMargin for those exact solver configurations.
-  if (solverKey === "a01") {
+  // trace margin; A11 and A12 use that same clearance for their HD30 runs.
+  // obstacleMargin describes board-obstacle clearance, not this value.
+  if (solverKey === "a01" || solverKey === "a11" || solverKey === "a12") {
     result.traceMargin = 0.1;
   }
   if (solverKey === "a03") {
@@ -195,7 +214,7 @@ export function getEffectiveSolverSettings({
     ...pipelineOverrides,
   };
 
-  if (solverKey === "a01") {
+  if (solverKey === "a01" || solverKey === "a11" || solverKey === "a12") {
     const existingHyperParameters = isObject(effective.hyperParameters)
       ? effective.hyperParameters
       : {};
@@ -220,7 +239,7 @@ function prepareSolver<TSolver extends BaseSolver>(
   return solver;
 }
 
-function createSolver(props: SolverWorkbenchProps): BaseSolver {
+export function createSolver(props: SolverWorkbenchProps): BaseSolver {
   const settings = getEffectiveSolverSettings(props);
   const nodeWithPortPoints = cloneNode(props.record);
   const constructorProps = { ...settings, nodeWithPortPoints };
@@ -276,6 +295,24 @@ function createSolver(props: SolverWorkbenchProps): BaseSolver {
         new HighDensitySolverA09(
           constructorProps as ConstructorParameters<
             typeof HighDensitySolverA09
+          >[0],
+        ),
+        props.maxIterations,
+      );
+    case "a11":
+      return prepareSolver(
+        new HighDensitySolverA11(
+          constructorProps as ConstructorParameters<
+            typeof HighDensitySolverA11
+          >[0],
+        ),
+        props.maxIterations,
+      );
+    case "a12":
+      return prepareSolver(
+        new HighDensitySolverA12(
+          constructorProps as ConstructorParameters<
+            typeof HighDensitySolverA12
           >[0],
         ),
         props.maxIterations,

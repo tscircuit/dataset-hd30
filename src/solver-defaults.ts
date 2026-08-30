@@ -2,7 +2,7 @@ import type { JsonObject, SolverKey } from "./types";
 
 /**
  * These values reproduce lib/default-params.ts from high-density-a01 at
- * 9a3a3dbc62d425c0459e6fc2fef7a656b448e9a0. That module is intentionally not
+ * 2086e5b5019fd01f2dad1c0a7b25fb32eecb60da. That module is intentionally not
  * exported by the package, so consumers need a local copy to construct the
  * full solver suite consistently.
  */
@@ -12,6 +12,20 @@ const defaultA01Params: JsonObject = {
   traceThickness: 0.1,
   viaDiameter: 0.3,
   viaMinDistFromBorder: 0.15,
+};
+
+// A11 derives cellSizeMm from the copper dimensions in its constructor.
+const defaultA11Params: JsonObject = {
+  traceMargin: defaultA01Params.traceMargin,
+  traceThickness: defaultA01Params.traceThickness,
+  viaDiameter: defaultA01Params.viaDiameter,
+  viaMinDistFromBorder: defaultA01Params.viaMinDistFromBorder,
+};
+
+// A12 derives its fine and coarse pitches from the copper dimensions.
+const defaultA12Params: JsonObject = {
+  ...defaultA11Params,
+  fineGridCellThickness: 16,
 };
 
 const defaultA02Params: JsonObject = {
@@ -74,4 +88,6 @@ export const SOLVER_DEFAULTS: Record<SolverKey, JsonObject> = {
   a05: defaultA05Params,
   a08: defaultA08Params,
   a09: defaultA09Params,
+  a11: defaultA11Params,
+  a12: defaultA12Params,
 };
