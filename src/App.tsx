@@ -467,11 +467,13 @@ function SolverControls({
         </div>
         <small className="parameter-note">
           {settingsMode === "pipeline9"
-            ? solverKey === "a11"
-              ? "Pipeline9 copper values · derived 0.05 mm grid"
-              : solverKey === "a01" || solverKey === "a03"
-                ? "Exact Pipeline9 A-series values"
-                : "Mapped from stored Pipeline9 values"
+            ? solverKey === "a12"
+              ? "Pipeline9 copper values · fine perimeter + coarse middle"
+              : solverKey === "a11"
+                ? "Pipeline9 copper values · derived 0.05 mm grid"
+                : solverKey === "a01" || solverKey === "a03"
+                  ? "Exact Pipeline9 A-series values"
+                  : "Mapped from stored Pipeline9 values"
             : "Pinned package defaults"}
         </small>
       </fieldset>
@@ -494,14 +496,16 @@ function SolverControls({
       </div>
 
       <div className="control-panel__field">
-        <label htmlFor="shuffle-seed">A01 / A11 shuffle seed</label>
+        <label htmlFor="shuffle-seed">A01 / A11 / A12 shuffle seed</label>
         <input
           id="shuffle-seed"
           type="number"
           min={0}
           step={1}
           value={a01ShuffleSeed}
-          disabled={solverKey !== "a01" && solverKey !== "a11"}
+          disabled={
+            solverKey !== "a01" && solverKey !== "a11" && solverKey !== "a12"
+          }
           onChange={(event) =>
             onSeedChange(
               Math.max(0, Math.floor(Number(event.currentTarget.value))),

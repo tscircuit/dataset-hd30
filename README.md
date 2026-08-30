@@ -28,18 +28,25 @@ run the complete current `high-density-a01` A-series suite:
 - `HighDensitySolverA08`
 - `HighDensitySolverA09`
 - `HighDensitySolverA11`
+- `HighDensitySolverA12`
 
 You can switch between package defaults and Pipeline 9-compatible settings,
-set the iteration cap, control A01/A11's shuffle seed, inspect the raw data, and
-copy a deep link to any solver/node combination.
+set the iteration cap, control A01/A11/A12's shuffle seed, inspect the raw data,
+and copy a deep link to any solver/node combination.
 
 The viewer pins `high-density-a01` commit
-`41878cebec2861fae5c7796e54f8d23bc8c5dfdb` and
+`2086e5b5019fd01f2dad1c0a7b25fb32eecb60da` and
 `@tscircuit/solver-utils@0.0.21`.
 
 Choose **A11** with **Pipeline9 values** to reproduce the first six
 native-bound HD30 solves. The solver derives a 0.05 mm grid from those copper
 dimensions and does not grow the node.
+
+Choose **A12** with **Pipeline9 values** to try the mixed-resolution successor:
+it keeps A11's derived fine pitch in a 16-cell perimeter band, uses a 4× coarser
+middle grid, and enables diagonal moves. This cuts the aggregate HD30 graph to
+44.1% of A11's search states. A12 solves eight native-bound nodes, five beyond
+A11; use the two together for an 11-node native-bound portfolio.
 
 ## Dataset format
 
@@ -65,8 +72,8 @@ The captured input satisfies:
 
 ```ts
 solver instanceof GrowShrinkHighDensityIntraNodeSolver &&
-solver.growthAttempts > 0 &&
-solver.solved === true
+  solver.growthAttempts > 0 &&
+  solver.solved === true;
 ```
 
 The JSON stores `solver.nodeWithPortPoints`, before any 2× or 4× physical
@@ -102,6 +109,7 @@ different from the pinned baseline and should not be labeled as this dataset.
 
 ```sh
 bun run validate
+bun run test
 bun run typecheck
 bun run build
 ```

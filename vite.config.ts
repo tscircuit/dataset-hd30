@@ -87,8 +87,8 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: true,
     sourcemap: true,
-    // The intentionally complete six-solver debugger suite is ~513 kB before
-    // gzip (~148 kB compressed), just above Vite's generic 500 kB threshold.
+    // The intentionally complete eight-solver debugger suite is ~518 kB before
+    // gzip (~150 kB compressed), just above Vite's generic 500 kB threshold.
     chunkSizeWarningLimit: 550,
   },
 });
