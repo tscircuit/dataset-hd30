@@ -22,6 +22,7 @@ The viewer loads each node into
 run the complete current `high-density-a01` A-series suite:
 
 - `HighDensitySolverA01`
+- `HighDensitySolverA01FineGrid`
 - `HighDensitySolverA02`
 - `HighDensitySolverA03`
 - `HighDensitySolverA05`
@@ -33,8 +34,12 @@ set the iteration cap, control A01's shuffle seed, inspect the raw data, and
 copy a deep link to any solver/node combination.
 
 The viewer pins `high-density-a01` commit
-`9a3a3dbc62d425c0459e6fc2fef7a656b448e9a0` and
+`e17068ad58033ffbcf8419a6a5aeed8819ea31d2` and
 `@tscircuit/solver-utils@0.0.21`.
+
+Choose **A01 Fine Grid** with **Pipeline9 values** to reproduce the first six
+native-bound HD30 solves. The solver derives a 0.05 mm grid from those copper
+dimensions and does not grow the node.
 
 ## Dataset format
 

@@ -1,5 +1,6 @@
 import {
   HighDensitySolverA01,
+  HighDensitySolverA01FineGrid,
   HighDensitySolverA02,
   HighDensitySolverA03,
   HighDensitySolverA05,
@@ -53,6 +54,7 @@ const SHARED_ALIASES: Record<string, string[]> = {
 
 const SOLVER_PARAMETER_KEYS: Record<SolverKey, string[]> = {
   a01: ["cellSizeMm", ...Object.keys(SHARED_ALIASES), "hyperParameters"],
+  a01fine: [...Object.keys(SHARED_ALIASES), "hyperParameters"],
   a02: [
     "outerGridCellSize",
     "outerGridCellThickness",
@@ -132,6 +134,14 @@ const collectParameterSources = (
     solverKey.toUpperCase(),
     `HighDensitySolver${solverKey.toUpperCase()}`,
   ];
+  if (solverKey === "a01fine") {
+    solverAliases.push(
+      "a01",
+      "A01",
+      "HighDensitySolverA01",
+      "HighDensitySolverA01FineGrid",
+    );
+  }
   for (const source of [...sources]) {
     for (const alias of solverAliases) {
       const value = source[alias];
@@ -171,7 +181,7 @@ export function getPipelineOverrides(
   // Pipeline9's grow-shrink portfolio instantiated A01 and A03 with a 0.1 mm
   // trace margin. obstacleMargin describes board-obstacle clearance and is not
   // the A-series traceMargin for those exact solver configurations.
-  if (solverKey === "a01") {
+  if (solverKey === "a01" || solverKey === "a01fine") {
     result.traceMargin = 0.1;
   }
   if (solverKey === "a03") {
@@ -195,7 +205,7 @@ export function getEffectiveSolverSettings({
     ...pipelineOverrides,
   };
 
-  if (solverKey === "a01") {
+  if (solverKey === "a01" || solverKey === "a01fine") {
     const existingHyperParameters = isObject(effective.hyperParameters)
       ? effective.hyperParameters
       : {};
@@ -231,6 +241,15 @@ function createSolver(props: SolverWorkbenchProps): BaseSolver {
         new HighDensitySolverA01(
           constructorProps as ConstructorParameters<
             typeof HighDensitySolverA01
+          >[0],
+        ),
+        props.maxIterations,
+      );
+    case "a01fine":
+      return prepareSolver(
+        new HighDensitySolverA01FineGrid(
+          constructorProps as ConstructorParameters<
+            typeof HighDensitySolverA01FineGrid
           >[0],
         ),
         props.maxIterations,

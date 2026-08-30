@@ -31,7 +31,14 @@ export type DatasetManifest = {
   raw: unknown;
 };
 
-export type SolverKey = "a01" | "a02" | "a03" | "a05" | "a08" | "a09";
+export type SolverKey =
+  | "a01"
+  | "a01fine"
+  | "a02"
+  | "a03"
+  | "a05"
+  | "a08"
+  | "a09";
 
 export type SettingsMode = "defaults" | "pipeline9";
 
@@ -39,6 +46,7 @@ export type RecordView = "debugger" | "json";
 
 export const SOLVER_OPTIONS: Array<{ value: SolverKey; label: string }> = [
   { value: "a01", label: "A01" },
+  { value: "a01fine", label: "A01 Fine Grid" },
   { value: "a02", label: "A02" },
   { value: "a03", label: "A03" },
   { value: "a05", label: "A05" },
