@@ -10,6 +10,8 @@ to 2× bounds; `sample002-cmn_4__sub_2_0` needed a second growth and solved at
 
 ## Explore the nodes
 
+Open the deployed viewer at **[dataset-hd30.vercel.app](https://dataset-hd30.vercel.app)**.
+
 ```sh
 bun install
 bun run dev
