@@ -1,0 +1,30 @@
+{
+  "name": "@tscircuit/dataset-hd30",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "validate": "bun scripts/validate.mjs",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#9a3a3dbc62d425c0459e6fc2fef7a656b448e9a0",
+    "@tscircuit/solver-utils": "0.0.21",
+    "graphics-debug": "0.0.86",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "24.3.0",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "@vitejs/plugin-react": "6.1.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.2",
+    "vite": "8.2.2"
+  }
+}

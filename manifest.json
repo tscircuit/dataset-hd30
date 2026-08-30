@@ -1,0 +1,1351 @@
+{
+  "schemaVersion": 1,
+  "dataset": "tscircuit/dataset-hd30",
+  "description": "The 27 distinct SRJ18 Pipeline 9 regular-node inputs behind the 28 grow-shrink attempts reported by tscircuit/tscircuit-autorouter PR #2286.",
+  "generatedAt": "2026-08-30T21:12:55.069Z",
+  "selection": {
+    "name": "pr-2286-timeout-bounded-growth-set",
+    "criterion": "GrowShrinkHighDensityIntraNodeSolver with growthAttempts > 0 and solved === true",
+    "input": "The solver's original nodeWithPortPoints before any physical scaling",
+    "notes": [
+      "This preserves the historical benchmark observation, not an unbounded cold replay of every SRJ18 sample.",
+      "sample008 contains the three-node chronological prefix reached before its historical benchmark worker timed out.",
+      "The observed set can vary with cache state, worker scheduling, timeouts, and machine speed."
+    ]
+  },
+  "historicalBenchmark": {
+    "pullRequest": "https://github.com/tscircuit/tscircuit-autorouter/pull/2286",
+    "command": "./benchmark.sh --pipeline 9 --dataset srj18 --concurrency 4",
+    "reportedGrowthAttemptCount": 28,
+    "completedSampleCount": 9,
+    "timedOutSampleCount": 7
+  },
+  "provenance": {
+    "autorouter": {
+      "repository": "https://github.com/tscircuit/tscircuit-autorouter",
+      "commit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+      "equivalentPullRequestHeadCommit": "c086cdf97284df5b85fde9a9eeded9d13f6d5f6e"
+    },
+    "sourceDataset": {
+      "repository": "https://github.com/tscircuit/dataset-srj18",
+      "commit": "c0aad90256a95256fcac814f9f7da81a82a2fdea"
+    },
+    "solverSuite": {
+      "repository": "https://github.com/tscircuit/high-density-a01",
+      "commit": "9a3a3dbc62d425c0459e6fc2fef7a656b448e9a0"
+    },
+    "pipeline9SecondarySolver": {
+      "repository": "https://github.com/tscircuit/high-density-b01",
+      "commit": "f974f97a77f27bc32b1fe5a8b3bccb7ba023e0b7"
+    }
+  },
+  "stats": {
+    "nodeCount": 27,
+    "growthAttemptCount": 28,
+    "solvedAt2xCount": 26,
+    "solvedAt4xCount": 1,
+    "sampleCount": 9,
+    "regularNodeCount": 27,
+    "regionalNodeCount": 0
+  },
+  "nodes": [
+    {
+      "id": "sample002-cmn_4__sub_2_0",
+      "file": "nodes/sample002-cmn_4__sub_2_0.json",
+      "nodeId": "cmn_4__sub_2_0",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample002",
+        "sampleNumber": 2,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 2,
+        "attemptNumbers": [
+          1,
+          2
+        ],
+        "scaleFactors": [
+          2,
+          4
+        ],
+        "solvedScaleFactor": 4,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 12.742499999999993,
+        "height": 10.616666666666667,
+        "portPointCount": 52,
+        "connectionCount": 26,
+        "layerCount": 2
+      },
+      "discoveryOrder": 1,
+      "sha256": "09aea9fb6a9b0f4086a71b661affbbed954a22a641ea3dc4a6ffc834f323740b"
+    },
+    {
+      "id": "sample002-cmn_36",
+      "file": "nodes/sample002-cmn_36.json",
+      "nodeId": "cmn_36",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample002",
+        "sampleNumber": 2,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          3
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 8.440000000000001,
+        "height": 2.63,
+        "portPointCount": 28,
+        "connectionCount": 14,
+        "layerCount": 2
+      },
+      "discoveryOrder": 2,
+      "sha256": "8268dccd05a0ba92d7067395751e323a1b397dd3361ea4cd3e508e34913fa8c1"
+    },
+    {
+      "id": "sample002-cmn_279",
+      "file": "nodes/sample002-cmn_279.json",
+      "nodeId": "cmn_279",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample002",
+        "sampleNumber": 2,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          4
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.4749999999999996,
+        "height": 0.7749999999999995,
+        "portPointCount": 8,
+        "connectionCount": 4,
+        "layerCount": 2
+      },
+      "discoveryOrder": 3,
+      "sha256": "a692a2c58186793a78c38ef09746dcabd181b268634616ab3237e3bd389da5a7"
+    },
+    {
+      "id": "sample002-cmn_2",
+      "file": "nodes/sample002-cmn_2.json",
+      "nodeId": "cmn_2",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample002",
+        "sampleNumber": 2,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          5
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 13.6944,
+        "height": 13.203600000000002,
+        "portPointCount": 50,
+        "connectionCount": 25,
+        "layerCount": 2
+      },
+      "discoveryOrder": 4,
+      "sha256": "5eaf3c6cd3a33d291c314ae5ebb592b3dcd0ef51656f3268df9e312674b47db1"
+    },
+    {
+      "id": "sample002-cmn_3",
+      "file": "nodes/sample002-cmn_3.json",
+      "nodeId": "cmn_3",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample002",
+        "sampleNumber": 2,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          6
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "HighDensitySolverA01"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 13.85,
+        "height": 6.425000000000001,
+        "portPointCount": 36,
+        "connectionCount": 18,
+        "layerCount": 2
+      },
+      "discoveryOrder": 5,
+      "sha256": "7436153b9a2a3da8914607ad2aba1f30b8954b7b23e3d77b2d53da7bc2d3ec7f"
+    },
+    {
+      "id": "sample003-cmn_70",
+      "file": "nodes/sample003-cmn_70.json",
+      "nodeId": "cmn_70",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample003",
+        "sampleNumber": 3,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          7
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.0606609999999996,
+        "height": 1.0606609999999996,
+        "portPointCount": 10,
+        "connectionCount": 5,
+        "layerCount": 4
+      },
+      "discoveryOrder": 6,
+      "sha256": "6cbb9f9caf52cbeb19225b95fd678914ee2b694c3a61ad3e7e645eff81045424"
+    },
+    {
+      "id": "sample003-cmn_14",
+      "file": "nodes/sample003-cmn_14.json",
+      "nodeId": "cmn_14",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample003",
+        "sampleNumber": 3,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          8
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.7458999999999989,
+        "height": 3.6595,
+        "portPointCount": 14,
+        "connectionCount": 7,
+        "layerCount": 4
+      },
+      "discoveryOrder": 7,
+      "sha256": "3853343e5d822dc1d4c7745385d78c2aa48bda8861ea4601d522a3d50d534c8e"
+    },
+    {
+      "id": "sample004-topology_merge_694",
+      "file": "nodes/sample004-topology_merge_694.json",
+      "nodeId": "topology_merge_694",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample004",
+        "sampleNumber": 4,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          9
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.3535539999999999,
+        "height": 2.121320999999999,
+        "portPointCount": 10,
+        "connectionCount": 5,
+        "layerCount": 2
+      },
+      "discoveryOrder": 8,
+      "sha256": "c7a1ca8ec37663a565517b5e9b6ef0e3b9f70fc30e9c56bbc14b4f7327921b1a"
+    },
+    {
+      "id": "sample004-topology_merge_639",
+      "file": "nodes/sample004-topology_merge_639.json",
+      "nodeId": "topology_merge_639",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample004",
+        "sampleNumber": 4,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          10
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.7071069999999997,
+        "height": 1.0606609999999996,
+        "portPointCount": 10,
+        "connectionCount": 4,
+        "layerCount": 2
+      },
+      "discoveryOrder": 9,
+      "sha256": "e12539cbb629145135ff0d5a91176cf2a471b1a5d93cab37263e83ee269783d9"
+    },
+    {
+      "id": "sample004-cmn_26",
+      "file": "nodes/sample004-cmn_26.json",
+      "nodeId": "cmn_26",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample004",
+        "sampleNumber": 4,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          11
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.8399999999999999,
+        "height": 3.1306000000000003,
+        "portPointCount": 14,
+        "connectionCount": 7,
+        "layerCount": 2
+      },
+      "discoveryOrder": 10,
+      "sha256": "ae328866634e3fb96a246bc8f181717de7a14136dae6b579ed0363051894a69b"
+    },
+    {
+      "id": "sample004-topology_merge_298",
+      "file": "nodes/sample004-topology_merge_298.json",
+      "nodeId": "topology_merge_298",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample004",
+        "sampleNumber": 4,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          12
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "HighDensitySolverA01"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.35355399999999904,
+        "height": 1.815716435582567,
+        "portPointCount": 14,
+        "connectionCount": 7,
+        "layerCount": 2
+      },
+      "discoveryOrder": 11,
+      "sha256": "f0a951f7868ed0a1374ab2c6017b6847b1c6ea10072363a2586d13ed1c927d4a"
+    },
+    {
+      "id": "sample004-topology_merge_175",
+      "file": "nodes/sample004-topology_merge_175.json",
+      "nodeId": "topology_merge_175",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample004",
+        "sampleNumber": 4,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          13
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.030000000000003,
+        "height": 5.45,
+        "portPointCount": 12,
+        "connectionCount": 6,
+        "layerCount": 2
+      },
+      "discoveryOrder": 12,
+      "sha256": "0b224a54dcf61ff353e17940e832156c207fe30ecc8e418956bd589f68405d01"
+    },
+    {
+      "id": "sample004-cmn_31",
+      "file": "nodes/sample004-cmn_31.json",
+      "nodeId": "cmn_31",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample004",
+        "sampleNumber": 4,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          14
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 8.8301,
+        "height": 1.9203999999999999,
+        "portPointCount": 28,
+        "connectionCount": 14,
+        "layerCount": 2
+      },
+      "discoveryOrder": 13,
+      "sha256": "5f1951bcb6aad25f362eed669133f0cfdfafff7f094884606fdfb923198e249b"
+    },
+    {
+      "id": "sample004-cmn_117",
+      "file": "nodes/sample004-cmn_117.json",
+      "nodeId": "cmn_117",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample004",
+        "sampleNumber": 4,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          15
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.9300999999999959,
+        "height": 0.5199999999999996,
+        "portPointCount": 6,
+        "connectionCount": 3,
+        "layerCount": 2
+      },
+      "discoveryOrder": 14,
+      "sha256": "8b1ae40d229bfbd84b9e74b22d1b9965701f8f640bc75329994cc7f4049a7b4f"
+    },
+    {
+      "id": "sample005-cmn_45",
+      "file": "nodes/sample005-cmn_45.json",
+      "nodeId": "cmn_45",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample005",
+        "sampleNumber": 5,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          16
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 2,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.8499999999999996,
+        "height": 2.679999999999999,
+        "portPointCount": 8,
+        "connectionCount": 4,
+        "layerCount": 2
+      },
+      "discoveryOrder": 15,
+      "sha256": "7dd6486321a4499d7deac3db8f25ca6e60a9341eb6329061af66f6ae176f5269"
+    },
+    {
+      "id": "sample007-cmn_345__sub_0_2",
+      "file": "nodes/sample007-cmn_345__sub_0_2.json",
+      "nodeId": "cmn_345__sub_0_2",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample007",
+        "sampleNumber": 7,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          17
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 1,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.7839999999999998,
+        "height": 0.2990010000000005,
+        "portPointCount": 4,
+        "connectionCount": 2,
+        "layerCount": 1
+      },
+      "discoveryOrder": 16,
+      "sha256": "c788dd9eca0ddd2da83f215f1707dbe3850667e4d20a0b36aa86ab1735b7b40c"
+    },
+    {
+      "id": "sample007-cmn_345__sub_0_0",
+      "file": "nodes/sample007-cmn_345__sub_0_0.json",
+      "nodeId": "cmn_345__sub_0_0",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample007",
+        "sampleNumber": 7,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          18
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "HighDensitySolverA01"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 1,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.7839999999999998,
+        "height": 0.2990010000000005,
+        "portPointCount": 4,
+        "connectionCount": 2,
+        "layerCount": 1
+      },
+      "discoveryOrder": 17,
+      "sha256": "8791fae613ba0e00ec4ce219354b99355d84ffc396830d7fb211229dda4ed7ed"
+    },
+    {
+      "id": "sample008-cmn_251",
+      "file": "nodes/sample008-cmn_251.json",
+      "nodeId": "cmn_251",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample008",
+        "sampleNumber": 8,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          19
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.283999999999999,
+        "height": 1.0749999999999995,
+        "portPointCount": 10,
+        "connectionCount": 5,
+        "layerCount": 4
+      },
+      "discoveryOrder": 18,
+      "sha256": "8b278acc4c4eeccc185f94ce03e055dcc85451e1f2acd0137975485c36b2be49"
+    },
+    {
+      "id": "sample008-cmn_447",
+      "file": "nodes/sample008-cmn_447.json",
+      "nodeId": "cmn_447",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample008",
+        "sampleNumber": 8,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          20
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.4405000000000001,
+        "height": 2.5015,
+        "portPointCount": 12,
+        "connectionCount": 6,
+        "layerCount": 4
+      },
+      "discoveryOrder": 19,
+      "sha256": "ef0bd897a1031687e957ec79eef340179a1d866cfd2ac8d2ef84483ac83658b0"
+    },
+    {
+      "id": "sample008-cmn_438",
+      "file": "nodes/sample008-cmn_438.json",
+      "nodeId": "cmn_438",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample008",
+        "sampleNumber": 8,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          21
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "HighDensitySolverA01"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.6670000000000016,
+        "height": 0.5999999999999996,
+        "portPointCount": 6,
+        "connectionCount": 3,
+        "layerCount": 4
+      },
+      "discoveryOrder": 20,
+      "sha256": "d5dab8c7b2c6a06a2f598380691dea30bf34b29e4738d743d9fc199950ebcca0"
+    },
+    {
+      "id": "sample009-cmn_110",
+      "file": "nodes/sample009-cmn_110.json",
+      "nodeId": "cmn_110",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample009",
+        "sampleNumber": 9,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          22
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.871991,
+        "height": 1.3989939999999998,
+        "portPointCount": 8,
+        "connectionCount": 4,
+        "layerCount": 4
+      },
+      "discoveryOrder": 21,
+      "sha256": "6ed9c0d84345b35208301f58b962d16975d94f94090f37f42ff2b4a6ec6ad94e"
+    },
+    {
+      "id": "sample011-cmn_56",
+      "file": "nodes/sample011-cmn_56.json",
+      "nodeId": "cmn_56",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample011",
+        "sampleNumber": 11,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          23
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.0185000000000008,
+        "height": 3.000499999999999,
+        "portPointCount": 22,
+        "connectionCount": 11,
+        "layerCount": 4
+      },
+      "discoveryOrder": 22,
+      "sha256": "4bfcbc15c03757d18a494b71fb43b06bc9f61a09d725c63558f282e396dfcba0"
+    },
+    {
+      "id": "sample011-cmn_3",
+      "file": "nodes/sample011-cmn_3.json",
+      "nodeId": "cmn_3",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample011",
+        "sampleNumber": 11,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          24
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 3.6500000000000012,
+        "height": 10.95,
+        "portPointCount": 28,
+        "connectionCount": 14,
+        "layerCount": 4
+      },
+      "discoveryOrder": 23,
+      "sha256": "452b79298853ff0c781ec192918c3932a196e88abbe344d299f05ebf2a887bb6"
+    },
+    {
+      "id": "sample011-cmn_108",
+      "file": "nodes/sample011-cmn_108.json",
+      "nodeId": "cmn_108",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample011",
+        "sampleNumber": 11,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          25
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "HighDensitySolverA03"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.2400000000000002,
+        "height": 0.8414999999999999,
+        "portPointCount": 18,
+        "connectionCount": 7,
+        "layerCount": 4
+      },
+      "discoveryOrder": 24,
+      "sha256": "4029ce378536a95ca6b040fa3cdc8906c3340698edb21a6a7a3373e2c2c73ceb"
+    },
+    {
+      "id": "sample016-cmn_119",
+      "file": "nodes/sample016-cmn_119.json",
+      "nodeId": "cmn_119",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample016",
+        "sampleNumber": 16,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          26
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 1.9254999999999995,
+        "height": 0.6745009999999976,
+        "portPointCount": 12,
+        "connectionCount": 5,
+        "layerCount": 4
+      },
+      "discoveryOrder": 25,
+      "sha256": "1b53cc973f126090c8095b146e3c08a310d1d4693c0eb422f4726bf28a43eef1"
+    },
+    {
+      "id": "sample016-cmn_31",
+      "file": "nodes/sample016-cmn_31.json",
+      "nodeId": "cmn_31",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample016",
+        "sampleNumber": 16,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          27
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 2.1324999999999994,
+        "height": 0.8799989999999989,
+        "portPointCount": 6,
+        "connectionCount": 3,
+        "layerCount": 4
+      },
+      "discoveryOrder": 26,
+      "sha256": "eda2ebbeb10ea2f16633a173dc5b696c970d8355b418058b76cecade9bddf51d"
+    },
+    {
+      "id": "sample016-cmn_102",
+      "file": "nodes/sample016-cmn_102.json",
+      "nodeId": "cmn_102",
+      "source": {
+        "dataset": "tscircuit/dataset-srj18",
+        "datasetCommit": "c0aad90256a95256fcac814f9f7da81a82a2fdea",
+        "scenarioName": "sample016",
+        "sampleNumber": 16,
+        "autorouter": "tscircuit/tscircuit-autorouter",
+        "autorouterCommit": "d1cffe72aa914ae792080a899a9e23fca1c4ca43",
+        "pipeline": 9,
+        "context": "regular"
+      },
+      "growth": {
+        "attempts": 1,
+        "attemptNumbers": [
+          28
+        ],
+        "scaleFactors": [
+          2
+        ],
+        "solvedScaleFactor": 2,
+        "outcome": "solved",
+        "winningSolverName": "CachedIntraNodeRouteSolver"
+      },
+      "solverParameters": {
+        "viaDiameter": 0.3,
+        "traceWidth": 0.1,
+        "obstacleMargin": 0.15,
+        "layerCount": 4,
+        "effort": 1
+      },
+      "environment": {
+        "obstaclePayloadOmitted": true,
+        "pipeline9RoutePayloadOmitted": true,
+        "note": "The canonical case is the zero-obstacle NodeWithPortPoints input consumed by the A-series intra-node solver; board-level Pipeline9 context is provenance only."
+      },
+      "metrics": {
+        "width": 0.9295000000000009,
+        "height": 2.788499999999999,
+        "portPointCount": 14,
+        "connectionCount": 7,
+        "layerCount": 4
+      },
+      "discoveryOrder": 27,
+      "sha256": "8c2cc7164e9db44293d0cee002d2fd7f2bd5d35e96f8e07129b70d060fe4c19b"
+    }
+  ]
+}
