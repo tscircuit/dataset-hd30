@@ -108,7 +108,10 @@ export async function loadManifest(): Promise<DatasetManifest> {
   return normalizeManifest((await response.json()) as unknown);
 }
 
-const validateRecord = (raw: unknown, entry: ManifestEntry): DatasetRecord => {
+export const normalizeRecord = (
+  raw: unknown,
+  entry: ManifestEntry,
+): DatasetRecord => {
   if (!isObject(raw)) {
     throw new Error(`${entry.file} is not a JSON object`);
   }
@@ -172,7 +175,7 @@ export function loadRecord(entry: ManifestEntry): Promise<DatasetRecord> {
       if (!response.ok) {
         throw new Error(`Unable to load ${entry.file} (${response.status})`);
       }
-      return validateRecord((await response.json()) as unknown, entry);
+      return normalizeRecord((await response.json()) as unknown, entry);
     })
     .catch((error: unknown) => {
       recordCache.delete(entry.file);

@@ -5,7 +5,7 @@ import {
   createSolver,
   getEffectiveSolverSettings,
   getPipelineOverrides,
-} from "../src/SolverWorkbench";
+} from "../src/solver-factory";
 import { SOLVER_DEFAULTS } from "../src/solver-defaults";
 import {
   SOLVER_OPTIONS,

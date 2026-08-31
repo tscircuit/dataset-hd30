@@ -35,18 +35,40 @@ set the iteration cap, control A01/A11/A12's shuffle seed, inspect the raw data,
 and copy a deep link to any solver/node combination.
 
 The viewer pins `high-density-a01` commit
-`2086e5b5019fd01f2dad1c0a7b25fb32eecb60da` and
+`2b06bf926e235c829279ebadf140078d55c5d272` and
 `@tscircuit/solver-utils@0.0.21`.
 
-Choose **A11** with **Pipeline9 values** to reproduce the first six
-native-bound HD30 solves. The solver derives a 0.05 mm grid from those copper
-dimensions and does not grow the node.
+Choose **A11** with **Pipeline9 values** to reproduce seven native-bound HD30
+solves. The solver derives a 0.05 mm grid from those copper dimensions, uses
+history-aware rip costs to avoid stable displacement cycles, and does not grow
+the node.
 
 Choose **A12** with **Pipeline9 values** to try the mixed-resolution successor:
 it keeps A11's derived fine pitch in a 16-cell perimeter band, uses a 4× coarser
 middle grid, and enables diagonal moves. This cuts the aggregate HD30 graph to
 44.1% of A11's search states. A12 solves eight native-bound nodes, five beyond
-A11; use the two together for an 11-node native-bound portfolio.
+A11; use the two together for a 12-node native-bound portfolio.
+
+## Compare native-bound solvers
+
+Run the canonical benchmark from the repository root:
+
+```sh
+./benchmark.sh
+./benchmark.sh --limit 20
+./benchmark.sh --sample 4 --solver A11,A12
+```
+
+The default run compares A11 and A12 against all 27 nodes without changing
+their bounds. A result counts only when the solver
+finishes, exact route geometry validation passes, and every unique physical
+port pair is covered exactly once. Duplicate MST aliases for the same physical
+pair do not inflate the target count.
+
+Each run writes `results/runNNN/logs.txt` and `results.json`, including duration
+P50/P95, the union of valid solves, a per-node validity matrix, and each
+solver's unique contribution. Use the unique-contribution result to decide
+whether an idea fixes a recurring failure class or is only a one-case patch.
 
 ## Dataset format
 

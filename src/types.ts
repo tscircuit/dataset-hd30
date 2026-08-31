@@ -1,13 +1,20 @@
-import type { NodeWithPortPoints } from "@tscircuit/high-density-a01";
+import type {
+  NodeWithPortPoints,
+  PortPoint,
+} from "@tscircuit/high-density-a01";
 
 export type JsonObject = Record<string, unknown>;
+
+export type DatasetNode = NodeWithPortPoints & {
+  portPointsInPairs?: Array<[PortPoint, PortPoint]>;
+};
 
 export type DatasetRecord = {
   id: string;
   source: unknown;
   growth: unknown;
   solverParameters: JsonObject;
-  nodeWithPortPoints: NodeWithPortPoints;
+  nodeWithPortPoints: DatasetNode;
   pipeline9Routes?: unknown[];
   obstacles?: unknown[];
   [key: string]: unknown;
@@ -32,7 +39,14 @@ export type DatasetManifest = {
 };
 
 export type SolverKey =
-  "a01" | "a02" | "a03" | "a05" | "a08" | "a09" | "a11" | "a12";
+  | "a01"
+  | "a02"
+  | "a03"
+  | "a05"
+  | "a08"
+  | "a09"
+  | "a11"
+  | "a12";
 
 export type SettingsMode = "defaults" | "pipeline9";
 
