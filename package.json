@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "benchmark": "./benchmark.sh",
     "dev": "vite",
     "test": "bun test",
     "validate": "bun scripts/validate.mjs",
@@ -12,7 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#2086e5b5019fd01f2dad1c0a7b25fb32eecb60da",
+    "@tscircuit/high-density-a01": "github:tscircuit/high-density-a01#2b06bf926e235c829279ebadf140078d55c5d272",
     "@tscircuit/solver-utils": "0.0.21",
     "graphics-debug": "0.0.86",
     "react": "19.1.1",

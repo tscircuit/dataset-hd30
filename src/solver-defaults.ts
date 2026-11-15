@@ -2,7 +2,7 @@ import type { JsonObject, SolverKey } from "./types";
 
 /**
  * These values reproduce lib/default-params.ts from high-density-a01 at
- * 2086e5b5019fd01f2dad1c0a7b25fb32eecb60da. That module is intentionally not
+ * 2b06bf926e235c829279ebadf140078d55c5d272. That module is intentionally not
  * exported by the package, so consumers need a local copy to construct the
  * full solver suite consistently.
  */

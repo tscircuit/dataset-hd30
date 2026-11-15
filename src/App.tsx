@@ -8,8 +8,8 @@ import {
 import {
   getEffectiveSolverSettings,
   getPipelineOverrides,
-  SolverWorkbench,
-} from "./SolverWorkbench";
+} from "./solver-factory";
+import { SolverWorkbench } from "./SolverWorkbench";
 import type {
   DatasetManifest,
   DatasetRecord,
